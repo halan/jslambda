@@ -1,0 +1,4 @@
+def true = \x.x
+def false = \y.\x.x
+
+(true false)
