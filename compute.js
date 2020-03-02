@@ -4,11 +4,12 @@ const omitAttr = attr => obj => {
 }
 
 const fnToName = defs => fn => {
+  //TODO recognize λx.x and λy.y as the same for example
   const named = Object.keys(defs)
     .map(name => ({
       name, str: compute(defs[name].func, {}, omitAttr(name)(defs))
     }))
-    .find(f => f.str == fn );
+    .find(f => f.str == fn ); // IMPROVEME
 
   return (named && named.name) || fn
 }
